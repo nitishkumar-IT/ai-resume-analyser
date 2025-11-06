@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Deep dark tones */
+  --color-dark-200: #0f172a; /* Deep navy-indigo */
+
+  /* Soft neutrals with a cool tone */
+  --color-light-blue-100: #f0fdfa; /* light mint-white */
+  --color-light-blue-200: #ccfbf1; /* aqua mist */
+
+  /* Badge backgrounds – vibrant pastel palette */
+  --color-badge-green: #bbf7d0; /* soft green */
+  --color-badge-red: #fecdd3; /* rosy pink */
+  --color-badge-yellow: #fde68a; /* amber yellow */
+
+  /* Badge text – darker complementary shades */
+  --color-badge-green-text: #064e3b;
+  --color-badge-red-text: #7f1d1d;
+  --color-badge-yellow-text: #78350f;
+}
+
+html,
+body {
+  @apply bg-[#f9fafb];
+}
+
+main {
+  @apply min-h-screen pt-10;
+}
+
+h1 {
+  @apply text-6xl text-gradient leading-tight tracking-[-2px] font-semibold;
+}
+
+h2 {
+  @apply text-3xl text-dark-200;
+}
+
+label {
+  @apply text-dark-200;
+}
+
+input,
+textarea {
+  @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+}
+
+form {
+  @apply flex flex-col items-start gap-8 w-full;
+}
+
+@layer components {
+  /* Bold, futuristic gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#06b6d4] via-[#8b5cf6] to-[#ec4899];
+  }
+
+  .gradient-border {
+    @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+  }
+
+  .primary-button {
+    @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
+  }
+
+  .resume-nav {
+    @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
+  }
+
+  .resume-summary {
+    @apply flex flex-row items-center justify-center p-4 gap-4;
+    .category {
+      @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+    }
+  }
+
+  .back-button {
+    @apply flex flex-row items-center gap-2 border border-gray-200 rounded-lg p-2 shadow-sm;
+  }
+
+  .auth-button {
+    @apply primary-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;
+  }
+
+  .main-section {
+    @apply flex flex-col items-center gap-8 pt-12 mx-15 pb-5;
+  }
+
+  .page-heading {
+    @apply flex flex-col items-center gap-8 max-w-4xl text-center;
+  }
+
+  .resumes-section {
+    @apply flex flex-wrap max-lg:flex-col gap-6 items-start w-full max-w-[1850px] justify-evenly;
+  }
+
+  .resume-card {
+    @apply flex flex-col gap-8 h-[560px] w-full lg:w-[450px] xl:w-[490px] bg-white rounded-2xl p-4 shadow-lg;
+  }
+
+  .resume-card-header {
+    @apply flex flex-row gap-2 justify-between min-h-[110px] max-sm:flex-col items-center max-md:justify-center max-md:items-center;
+  }
+
+  .feedback-section {
+    @apply flex flex-col gap-8 w-1/2 px-8 max-lg:w-full py-6;
+  }
+
+  .navbar {
+    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto shadow-md;
+  }
+
+  .score-badge {
+    @apply flex flex-row items-center justify-center py-1 px-2 gap-4 rounded-[96px];
+  }
+
+  .form-div {
+    @apply flex flex-col gap-2 w-full items-start;
+  }
+
+  .uplader-drag-area {
+    @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px] border border-gray-200 hover:gradient-hover;
+  }
+
+  .uploader-selected-file {
+    @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
+  }
+}
+
+/* New utilities and effects */
+@utility bg-gradient {
+  background: linear-gradient(to bottom, #f9fafb 60%, #f0fdfa);
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#06b6d4] via-[#8b5cf6] to-[#ec4899];
+}
+
+@utility gradient-hover {
+  @apply bg-gradient-to-b from-[#ccfbf1] to-[#e0f2fe];
+}
+
+@utility primary-gradient {
+  background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+@utility primary-gradient-hover {
+  background: linear-gradient(to right, #0891b2, #7c3aed, #db2777);
+}
+
+@utility inset-shadow {
+  box-shadow: inset 0 0 12px 0 rgba(139, 92, 246, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
